@@ -175,6 +175,12 @@
         })
       })
 
+      ;['CLOSED', 'CLOSING', 'CONNECTING', 'OPEN'].forEach(function (name) {
+        Object.defineProperty(self, name, {
+          value: WebSocket[name]
+        });
+      })
+
       attachConnectivityEvents()
     }
 
